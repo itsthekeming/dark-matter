@@ -75,13 +75,13 @@ export async function getEntryData(id: string, fullPath: string) {
   // Combine the data with the id and content
   return {
     id,
-    content: fileContents,
+    content: matterResult.content,
     ...matterResult.data,
   }
 }
 
 // helper function useful to quickly print the nested paths while debugging
-export function printPaths(paths: Article[], space = '') {
+function printPaths(paths: Article[], space = '') {
   for (let path of paths) {
     if (!Array.isArray(path)) {
       console.log(space, path.params.id)

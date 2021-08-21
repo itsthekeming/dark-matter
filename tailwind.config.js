@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   mode: 'jit',
-  purge: ['src/**/*.tsx'],
+  purge: ['src/**/*.{tsx,mdx}'],
   theme: {
     extend: {
       fontFamily: {

@@ -1,76 +1,64 @@
 import { Text } from '@arwes/core'
-import { getEntryData, getPathList } from 'lib/compendium'
-import Markdown from 'markdown-to-jsx'
+import { getCompendiumEntry, getPathList } from 'lib/compendium'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import path from 'path'
-import { useState } from 'react'
-
-const COMPENDIUM_ROOT = path.join(process.cwd(), '/_compendium')
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import { HTMLAttributes } from 'react'
 
 type ArticleProps = {
-  entryData: {
-    id: string[]
-    content: string
-    title: string
-  }
+  source: MDXRemoteSerializeResult<Record<string, unknown>>
+  title: string
+  tags?: string[]
 }
 
-export default function Article({ entryData: { id, content, title } }: ArticleProps) {
-  const duration = { enter: 1000, exit: 1000 }
-  const [activate, setActivate] = useState(true)
+const components = {
+  Text,
+  h1: function h1(props: HTMLAttributes<HTMLHeadingElement>) {
+    return <Text as="h1" {...props} />
+  },
+  p: function p(props: HTMLAttributes<HTMLParagraphElement>) {
+    return <Text as="p" {...props} />
+  },
+}
 
+export default function Article({ source, title, tags }: ArticleProps) {
   return (
     <>
-      <Markdown
-        options={{
-          overrides: {
-            h1: {
-              component: Text,
-              props: {
-                as: 'h1',
-                animate: { duration, activate },
-              },
-            },
-          },
-        }}
-      >
-        {content}
-      </Markdown>
+      {tags?.map((tag) => (
+        <Text key={tag} as="p">
+          {tag}
+        </Text>
+      ))}
+      <MDXRemote {...source} components={components} />
     </>
   )
 }
 
-// Define a cache that will map the slug to the actual path.
-const pageFileCache = {}
+// we want the paths to not include the extension.
+// however, we need the extension to retrieve the file itself.
+// thus, we define a cache that maps the baseName (used for the path in getStaticPaths) to the full file path (used to retrieve the file for getStaticProps)
+const entryPathCache: Record<string, string> = {}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // Retrieve the full path from a cache. Generate cache if it doesn't exist.
-  // id is undefined at index '/', so set slugPath as '' instead
+  const slug = (params.id as string[]).join()
 
-  let slugPath: string = ''
-  if (params.id) {
-    slugPath = (params.id as string[]).join('/')
-  }
-
-  if (!pageFileCache[slugPath]) {
+  if (!entryPathCache[slug]) {
     await getStaticPaths({})
   }
 
-  const markdownFile = pageFileCache[slugPath]
-
-  // Get entryData for the slug and markdown file
-  const entryData = await getEntryData(slugPath, markdownFile)
+  const entry = await getCompendiumEntry(entryPathCache[slug])
+  const source = await serialize(entry.content)
 
   return {
     props: {
-      entryData,
+      source,
+      ...entry,
     },
   }
 }
 
-// Get static paths is a wrapper around the getPathList
 export const getStaticPaths: GetStaticPaths = async () => {
-  let paths = await getPathList(COMPENDIUM_ROOT, COMPENDIUM_ROOT, pageFileCache)
+  let paths = await getPathList(entryPathCache)
 
   return {
     paths,

@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "compendium/random": {
-      "includeFiles": ".compendium/**/*.{md,mdx}"
-    }
-  }
-}

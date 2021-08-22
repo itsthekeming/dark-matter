@@ -2,6 +2,10 @@ import fs from 'fs-extra'
 import matter from 'gray-matter'
 import path from 'path'
 
+// I haven't figured out a way to pull built static entries at run time for a serverless function to use
+// Workaround is adding them here to be used by the randomizer
+const publishedEntries = ['hann-seastrand']
+
 type Entry = {
   content: string
   published: boolean
@@ -41,14 +45,8 @@ export async function getPaths(entryPathCache: Record<string, string>) {
   ).filter((path) => !!path)
 }
 
-export async function getServerSidePaths() {
-  const paths = await fs.readdir(path.join(process.cwd()))
-
-  for (const path of paths) {
-    console.log(path)
-  }
-
-  return paths
+export async function getRandomSlug() {
+  return publishedEntries[Math.floor(Math.random() * publishedEntries.length)]
 }
 
 export async function getEntry(filePath: string) {

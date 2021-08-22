@@ -1,4 +1,5 @@
 import { CompendiumLayout } from 'components'
+import { GetServerSideProps } from 'next'
 import { ReactElement } from 'react'
 
 export default function Compendium() {
@@ -7,4 +8,13 @@ export default function Compendium() {
 
 Compendium.getLayout = function getLayout(page: ReactElement) {
   return <CompendiumLayout>{page}</CompendiumLayout>
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    redirect: {
+      destination: '/compendium/all',
+      permanent: true,
+    },
+  }
 }

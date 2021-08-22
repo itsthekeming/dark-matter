@@ -1,0 +1,5 @@
+---
+title: Deuxcator
+tags:
+  - Planets
+---

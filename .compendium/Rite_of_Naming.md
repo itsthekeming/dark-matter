@@ -1,0 +1,3 @@
+---
+title: Rite of Naming
+---

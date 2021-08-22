@@ -14,7 +14,7 @@ export default function GalaxyMap() {
         fluid
         className="max-w-4xl"
       >
-        The <Link href="/compendium/himv-saratoga">HIMV Saratoga</Link> under construction at{' '}
+        The <Link href="/compendium/hhcs-saratoga">HHCS Saratoga</Link> under construction at{' '}
         <Link href="/compendium/nairobi-naval-shipyard">Nairobi Naval Shipyard</Link> on{' '}
         <Link href="/compendium/earth">Earth</Link>.
       </Figure>

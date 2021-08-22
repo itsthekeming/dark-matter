@@ -12,12 +12,6 @@ export function CompendiumNavbar() {
           <Text>
             <Link href="/compendium">Home</Link>
           </Text>
-          {/* <Text>
-            <Link href="/compendium/featured">Featured Entry</Link>
-          </Text> */}
-          <Text>
-            <Link href="/compendium/random">Random Entry</Link>
-          </Text>
           <Text>
             <Link href="/compendium/tags">Tags</Link>
           </Text>

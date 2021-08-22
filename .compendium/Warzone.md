@@ -1,0 +1,5 @@
+---
+title: Warzone
+tags:
+  - Locations
+---

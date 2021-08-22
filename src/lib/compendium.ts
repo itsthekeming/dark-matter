@@ -45,10 +45,6 @@ export async function getPaths(entryPathCache: Record<string, string>) {
   ).filter((path) => !!path)
 }
 
-export async function getRandomSlug() {
-  return publishedEntries[Math.floor(Math.random() * publishedEntries.length)]
-}
-
 export async function getEntry(filePath: string) {
   const entry = await fs.readFile(filePath, 'utf8')
 

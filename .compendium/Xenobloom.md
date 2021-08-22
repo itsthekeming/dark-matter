@@ -1,0 +1,5 @@
+---
+title: Xenobloom
+tags:
+  - Creatures
+---

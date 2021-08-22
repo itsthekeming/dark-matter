@@ -1,0 +1,5 @@
+---
+title: Hearthstation
+tags:
+  - Locations
+---

@@ -1,0 +1,5 @@
+---
+title: Bulette
+tags:
+  - Creatures
+---

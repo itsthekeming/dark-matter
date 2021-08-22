@@ -19,7 +19,7 @@ export default function Custom404() {
       </div>
       <Figure
         src="/assets/images/salvage-operation.webp"
-        alt="A lone figure walks toward an under construction spaceship suspended above the ground in a large shipyard"
+        alt="An exploration vessel investigates a derelict early human ship"
         fluid
         className="max-w-4xl"
       >

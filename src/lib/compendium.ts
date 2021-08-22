@@ -9,7 +9,7 @@ type Entry = {
   tags: string[]
 }
 
-const COMPENDIUM_ROOT = path.join(process.cwd(), '.compendium')
+const COMPENDIUM_ROOT = path.join(process.cwd(), '/.compendium')
 
 export async function getPaths(entryPathCache: Record<string, string>) {
   const entries = await fs.readdir(COMPENDIUM_ROOT)

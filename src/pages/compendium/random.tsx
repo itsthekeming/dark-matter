@@ -1,11 +1,11 @@
 import { getPaths } from 'lib/compendium'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 
 export default function RandomEntry() {
   return null
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const paths = await getPaths({})
 
   const {

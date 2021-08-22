@@ -42,9 +42,11 @@ export async function getPaths(entryPathCache: Record<string, string>) {
 }
 
 export async function getServerSidePaths() {
-  const paths = await fs.readJson(path.join(process.cwd(), '/.next', '/routes-manifest.json'))
+  const paths = await fs.readJson(path.join(process.cwd(), '/.next'))
 
-  console.log(paths)
+  for (const path of paths) {
+    console.log(path)
+  }
 
   return paths
 }

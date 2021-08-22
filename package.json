@@ -20,6 +20,7 @@
     "@emotion/react": "^11.4.1",
     "@fontsource/source-code-pro": "^4.5.0",
     "@fontsource/titillium-web": "^4.5.0",
+    "@heroicons/react": "^1.0.4",
     "animejs": "^3.2.1",
     "fs-extra": "^10.0.0",
     "gray-matter": "^4.0.3",

@@ -1,14 +1,10 @@
-import { Text } from '@arwes/core'
-import Navbar from 'components/navbar'
-import React from 'react'
+import { CompendiumLayout } from 'components'
+import { ReactElement } from 'react'
 
 export default function Compendium() {
-  return (
-    <>
-      <Navbar />
-      <div className="w-full max-w-6xl m-auto">
-        <Text as="h1">The Compendium</Text>
-      </div>
-    </>
-  )
+  return <div className="w-full max-w-6xl m-auto"></div>
+}
+
+Compendium.getLayout = function getLayout(page: ReactElement) {
+  return <CompendiumLayout>{page}</CompendiumLayout>
 }

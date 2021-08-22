@@ -1,4 +1,4 @@
-import { Text, Card, Button } from '@arwes/core'
+import { Button, Card, Text } from '@arwes/core'
 import { useRouter } from 'next/router'
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
           }
           className="lg:w-96"
         >
-          <Text>An archive of all knowledge in the known galaxy.</Text>
+          <Text>Learn all there is to know in the galaxy.</Text>
         </Card>
         <Card
           title="Galaxy Map"
@@ -40,7 +40,7 @@ export default function Home() {
           }
           className="lg:w-96"
         >
-          <Text>Find your way in the vast seas of stars... or get lost in the Void.</Text>
+          <Text>Find your way in the vast seas of stars.</Text>
         </Card>
       </div>
     </div>

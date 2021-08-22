@@ -1,13 +1,16 @@
 import { Text } from '@arwes/core'
-import { getCompendiumEntry, getPathList } from 'lib/compendium'
+import { CompendiumLayout } from 'components'
+import { getEntry, getPaths } from 'lib/compendium'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import { HTMLAttributes } from 'react'
+import Head from 'next/head'
+import { HTMLAttributes, ReactElement } from 'react'
 
-type ArticleProps = {
+type EntryProps = {
   source: MDXRemoteSerializeResult<Record<string, unknown>>
   title: string
+  category: string
   tags?: string[]
 }
 
@@ -21,17 +24,31 @@ const components = {
   },
 }
 
-export default function Article({ source, title, tags }: ArticleProps) {
+export default function Entry({ source, title, category, tags }: EntryProps) {
   return (
     <>
-      {tags?.map((tag) => (
-        <Text key={tag} as="p">
-          {tag}
-        </Text>
-      ))}
-      <MDXRemote {...source} components={components} />
+      <Head>
+        <title>{title} - The Compendium</title>
+      </Head>
+      <div className="w-full max-w-6xl m-auto">
+        <article>
+          <div className="border-b border-[#00F8F8]">
+            <Text as="h1" className="text-3xl mb-1">
+              {title}
+            </Text>
+          </div>
+          <aside>
+            <Text className="text-xs mt-1">From The Compendium, the galactic encyclopedia</Text>
+          </aside>
+          <MDXRemote {...source} components={components} />
+        </article>
+      </div>
     </>
   )
+}
+
+Entry.getLayout = function getLayout(page: ReactElement) {
+  return <CompendiumLayout>{page}</CompendiumLayout>
 }
 
 // we want the paths to not include the extension.
@@ -40,25 +57,25 @@ export default function Article({ source, title, tags }: ArticleProps) {
 const entryPathCache: Record<string, string> = {}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = (params.id as string[]).join()
+  const slug = params.slug as string
 
   if (!entryPathCache[slug]) {
     await getStaticPaths({})
   }
 
-  const entry = await getCompendiumEntry(entryPathCache[slug])
-  const source = await serialize(entry.content)
+  const { content, ...metadata } = await getEntry(entryPathCache[slug])
+  const source = await serialize(content)
 
   return {
     props: {
       source,
-      ...entry,
+      ...metadata,
     },
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  let paths = await getPathList(entryPathCache)
+  let paths = await getPaths(entryPathCache)
 
   return {
     paths,

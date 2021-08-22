@@ -1,17 +1,27 @@
-import 'styles/globals.css'
-import '@fontsource/titillium-web'
-import '@fontsource/source-code-pro'
 import { ArwesThemeProvider, StylesBaseline } from '@arwes/core'
+import '@fontsource/source-code-pro'
+import '@fontsource/titillium-web'
+import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import { ReactElement, ReactNode } from 'react'
+import 'styles/globals.css'
 
-const FONT_FAMILY_ROOT = '"Titillium Web", sans-serif'
-const FONT_FAMILY_CODE = '"Source Code Pro", monospace'
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
 
-function App({ Component, pageProps }: AppProps) {
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+function App({ Component, pageProps }: AppPropsWithLayout) {
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout ?? ((page) => page)
+
   return (
     <ArwesThemeProvider>
       <StylesBaseline />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </ArwesThemeProvider>
   )
 }

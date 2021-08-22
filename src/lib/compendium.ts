@@ -42,7 +42,7 @@ export async function getPaths(entryPathCache: Record<string, string>) {
 }
 
 export async function getServerSidePaths() {
-  const paths = await fs.readdir(path.join(process.cwd(), '/.next'))
+  const paths = await fs.readdir(path.join(process.cwd()))
 
   for (const path of paths) {
     console.log(path)

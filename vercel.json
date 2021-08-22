@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "functions": {
+      "compendium/random": {
+        "include": ".compendium/**/*.{md,mdx}"
+      }
+    }
+  }
+}

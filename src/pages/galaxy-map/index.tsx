@@ -9,7 +9,7 @@ export default function GalaxyMap() {
       </Text>
       <Text as="p">This page is still a work in progress. Check back later.</Text>
       <Figure
-        src="/dark-matter/assets/images/shipyard.webp"
+        src="/assets/images/shipyard.webp"
         alt="A lone figure walks toward an under construction spaceship suspended above the ground in a large shipyard"
         fluid
         className="max-w-4xl"

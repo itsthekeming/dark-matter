@@ -13,7 +13,7 @@ export default function Home() {
         <Card
           title="The Compendium"
           image={{
-            src: '/dark-matter/assets/images/library.webp',
+            src: '/assets/images/library.webp',
             alt: 'A futuristic library with two entities speaking, one towering over the other',
           }}
           hover
@@ -29,7 +29,7 @@ export default function Home() {
         <Card
           title="Galaxy Map"
           image={{
-            src: '/dark-matter/assets/images/galaxy.webp',
+            src: '/assets/images/galaxy.webp',
             alt: 'The Milky Way galaxy',
           }}
           hover

@@ -18,7 +18,7 @@ export default function Custom404() {
         </Text>
       </div>
       <Figure
-        src="/dark-matter/assets/images/salvage-operation.webp"
+        src="/assets/images/salvage-operation.webp"
         alt="A lone figure walks toward an under construction spaceship suspended above the ground in a large shipyard"
         fluid
         className="max-w-4xl"

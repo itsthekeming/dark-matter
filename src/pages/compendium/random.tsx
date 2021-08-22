@@ -1,4 +1,4 @@
-import { getPaths } from 'lib/compendium'
+import { getPaths, getServerSidePaths } from 'lib/compendium'
 import { GetServerSideProps } from 'next'
 
 export default function RandomEntry() {
@@ -6,11 +6,9 @@ export default function RandomEntry() {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const paths = await getPaths({})
+  const paths = await getServerSidePaths()
 
-  const {
-    params: { slug },
-  } = paths[Math.floor(Math.random() * paths.length)]
+  const slug = paths[Math.floor(Math.random() * paths.length)]
 
   return {
     redirect: {

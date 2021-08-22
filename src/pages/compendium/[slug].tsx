@@ -1,11 +1,12 @@
-import { Text } from '@arwes/core'
+import { Text, List } from '@arwes/core'
 import { CompendiumLayout } from 'components'
 import { getEntry, getPaths } from 'lib/compendium'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
-import { HTMLAttributes, ReactElement } from 'react'
+import Link from 'next/link'
+import { AnchorHTMLAttributes, HTMLAttributes, ReactElement } from 'react'
 
 type EntryProps = {
   source: MDXRemoteSerializeResult<Record<string, unknown>>
@@ -17,10 +18,28 @@ type EntryProps = {
 const components = {
   Text,
   h1: function h1(props: HTMLAttributes<HTMLHeadingElement>) {
-    return <Text as="h1" {...props} />
+    return <Text as="h1" className="!block" {...props} />
+  },
+  h2: function h1(props: HTMLAttributes<HTMLHeadingElement>) {
+    return <Text as="h2" className="!block" {...props} />
   },
   p: function p(props: HTMLAttributes<HTMLParagraphElement>) {
-    return <Text as="p" {...props} />
+    return <Text as="p" className="!block" {...props} />
+  },
+  a: function a({ href, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) {
+    return (
+      <Text>
+        <Link href={href} passHref>
+          <a {...props} />
+        </Link>
+      </Text>
+    )
+  },
+  strong: function strong(props: HTMLAttributes<HTMLElement>) {
+    return <strong className="font-bold" {...props} />
+  },
+  ul: function ul(props: HTMLAttributes<HTMLUListElement>) {
+    return <List {...props} />
   },
 }
 
@@ -33,14 +52,17 @@ export default function Entry({ source, title, category, tags }: EntryProps) {
       <div className="w-full max-w-6xl m-auto">
         <article>
           <div className="border-b border-[#00F8F8]">
-            <Text as="h1" className="text-3xl mb-1">
+            <Text as="h1" className="text-3xl mb-2">
               {title}
             </Text>
+            <strong></strong>
           </div>
-          <aside>
-            <Text className="text-xs mt-1">From The Compendium, the galactic encyclopedia</Text>
+          <aside className="mt-2">
+            <Text className="text-xs">From The Compendium, the galactic encyclopedia</Text>
           </aside>
-          <MDXRemote {...source} components={components} />
+          <div className="mt-8">
+            <MDXRemote {...source} components={components} />
+          </div>
         </article>
       </div>
     </>

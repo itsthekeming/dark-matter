@@ -1,5 +1,5 @@
 ---
 title: Black
 tags:
-  - Space Phenomena
+  - Astronomical Phenomena
 ---

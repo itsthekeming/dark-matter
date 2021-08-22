@@ -1,8 +1,11 @@
 import { ArwesThemeProvider, StylesBaseline } from '@arwes/core'
 import '@fontsource/source-code-pro'
-import '@fontsource/titillium-web'
+import '@fontsource/titillium-web/400.css'
+import '@fontsource/titillium-web/600.css'
+import '@fontsource/titillium-web/700.css'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import { ReactElement, ReactNode } from 'react'
 import 'styles/globals.css'
 
@@ -19,10 +22,15 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
-    <ArwesThemeProvider>
-      <StylesBaseline />
-      {getLayout(<Component {...pageProps} />)}
-    </ArwesThemeProvider>
+    <>
+      <Head>
+        <link rel="preload" href="/assets/fonts/dwarf-runes.ttf" as="font" crossOrigin="" />
+      </Head>
+      <ArwesThemeProvider>
+        <StylesBaseline />
+        {getLayout(<Component {...pageProps} />)}
+      </ArwesThemeProvider>
+    </>
   )
 }
 

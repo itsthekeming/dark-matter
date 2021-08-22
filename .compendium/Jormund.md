@@ -1,5 +1,0 @@
----
-title: Jormund
-tags:
-  - Planets
----

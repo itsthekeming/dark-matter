@@ -1,5 +1,5 @@
 ---
 title: Milky Way
 tags:
-  - Space Phenomena
+  - Astronomical Phenomena
 ---

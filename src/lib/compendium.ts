@@ -93,7 +93,7 @@ export async function getAllTagsWithEntries() {
       const { title, ...entry } = await getEntry(path.join(COMPENDIUM_ROOT, entryPath))
 
       if (entry.published) {
-        entry.tags.forEach((tag) => {
+        entry.tags?.forEach((tag) => {
           if (!tags[tag]) {
             tags[tag] = {
               entries: [],

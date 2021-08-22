@@ -1,5 +1,0 @@
----
-title: Draconia
-tags:
-  - Planets
----

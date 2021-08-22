@@ -24,7 +24,9 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
       <Head>
-        <link rel="preload" href="/assets/fonts/dwarf-runes.ttf" as="font" crossOrigin="" />
+        <link rel="preload" href="/assets/fonts/Davek.otf" as="font" crossOrigin="" />
+        <link rel="preload" href="/assets/fonts/Rellanic.otf" as="font" crossOrigin="" />
+        <link rel="preload" href="/assets/fonts/Iokharic.otf" as="font" crossOrigin="" />
       </Head>
       <ArwesThemeProvider>
         <StylesBaseline />

@@ -21,7 +21,7 @@ export async function getPaths(entryPathCache: Record<string, string>) {
   return (
     await Promise.all(
       entries.map(async (filePath) => {
-        const baseName = path.basename(filePath, path.extname(filePath))
+        const baseName = escape(path.basename(filePath, path.extname(filePath)))
 
         entryPathCache[baseName] = path.join(COMPENDIUM_ROOT, filePath)
 
@@ -70,7 +70,7 @@ export async function getAllEntryTitlesAndSlugs() {
         if (published) {
           return {
             title,
-            slug: path.basename(entry, path.extname(entry)),
+            slug: escape(path.basename(entry, path.extname(entry))),
           }
         }
 
@@ -89,7 +89,7 @@ export async function getAllTagsWithEntries() {
 
   await Promise.all(
     entryPaths.map(async (entryPath) => {
-      const slug = path.basename(entryPath, path.extname(entryPath))
+      const slug = escape(path.basename(entryPath, path.extname(entryPath)))
       const { title, ...entry } = await getEntry(path.join(COMPENDIUM_ROOT, entryPath))
 
       if (entry.published) {

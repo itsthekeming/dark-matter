@@ -1,5 +1,5 @@
 ---
-title: Simian
+title: Simian (species)
 tags:
   - Intelligent Species
 ---

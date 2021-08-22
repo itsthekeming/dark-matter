@@ -1,0 +1,5 @@
+---
+title: Rogue
+tags:
+  - Classes
+---

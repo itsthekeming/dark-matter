@@ -1,5 +1,0 @@
----
-title: Congegration
-tags:
-  - Ships
----

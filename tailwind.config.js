@@ -9,7 +9,9 @@ module.exports = {
       fontFamily: {
         sans: ['Titillium Web', ...defaultTheme.fontFamily.sans],
         mono: ['Source Code Pro', ...defaultTheme.fontFamily.sans],
-        dwarven: ['Dwarf Runes'],
+        dwarvish: ['Dwarvish'],
+        elvish: ['Elvish'],
+        draconic: ['Draconic'],
       },
     },
   },

@@ -1,5 +1,5 @@
 ---
 title: Adamantine Fleet
 tags:
-  - Ships
+  - Fleets
 ---

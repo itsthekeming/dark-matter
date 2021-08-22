@@ -4,8 +4,24 @@
 
 @layer components {
   @font-face {
-    font-family: 'Dwarf Runes';
-    src: url('/assets/fonts/dwarf-runes.ttf');
+    font-family: 'Dwarvish';
+    src: url('/assets/fonts/Davek.otf');
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: 'Elvish';
+    src: url('/assets/fonts/Rellanic.otf');
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: 'Draconic';
+    src: url('/assets/fonts/Iokharic.otf');
     font-style: normal;
     font-weight: 400;
     font-display: block;

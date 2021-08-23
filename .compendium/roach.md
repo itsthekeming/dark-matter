@@ -1,5 +1,0 @@
----
-title: Roach
-tags:
-  - Creatures
----

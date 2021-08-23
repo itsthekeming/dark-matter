@@ -1,5 +1,0 @@
----
-title: Earth
-tags:
-  - Planets
----

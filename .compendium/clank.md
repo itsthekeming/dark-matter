@@ -1,5 +1,0 @@
----
-title: Clank
-tags:
-  - Ships
----

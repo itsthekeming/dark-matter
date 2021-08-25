@@ -7,15 +7,9 @@ tags:
 
 A **star system**, also known as a **solar system**, **planetary system**, or simply a **system**, is a group of celestial bodies, usually [planets](/compendium/Planet), orbiting a [star](/compendium/Star).
 
-## Known Star Systems
-
-- [Anvil](/compendium/Anvil)
-- [Bounty](/compendium/Bounty)
-- [Etilion](/compendium/Etilion)
-- [Sepulcher](/compendium/Sepulcher_Star)
-
 ## See Also
 
+- [List of star systems](/compendium/List_of_star_systems)
 - [Star](/compendium/Star)
 - [Planet](/compendium/Planet)
 

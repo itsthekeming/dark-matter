@@ -9,7 +9,7 @@ The species of the [Milky Way](/compendium/Milky_Way) measure time using [second
 
 ## Time Magic
 
-Time can be manipulated with [magic](/compendium/Magic). The practice of spells that affect time are strictly forbidden by galactic law.
+Time can be manipulated with [magic](/compendium/Magic). However, practice of spells that affect time are strictly forbidden by current galactic law.
 
 ## External Links
 

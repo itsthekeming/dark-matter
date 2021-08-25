@@ -7,4 +7,4 @@ tags:
   - Gadgeteers
 ---
 
-**Faessa Boondiggles** is a [Gnome](/compendium/Gnome) [Gadgeteer](/compendium/Gadgeteer), adventurer, and mercenary.
+**Faessa Boondiggles** is a [gnome](/compendium/Gnome) [gadgeteer](/compendium/Gadgeteer), adventurer, and mercenary.

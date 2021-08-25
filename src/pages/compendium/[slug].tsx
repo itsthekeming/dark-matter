@@ -6,10 +6,12 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
 import Link from 'next/link'
-import { AnchorHTMLAttributes, HTMLAttributes, ReactElement } from 'react'
+import { AnchorHTMLAttributes, HTMLAttributes, ReactElement, useEffect } from 'react'
+import toc from 'markdown-toc'
 
 type EntryProps = {
   source: MDXRemoteSerializeResult<Record<string, unknown>>
+  tableOfContents: any
   title: string
   category: string
   tags?: string[]
@@ -24,7 +26,7 @@ const components = {
     return <Text as="h2" className="!block" {...props} />
   },
   p: function p(props: HTMLAttributes<HTMLParagraphElement>) {
-    return <Text as="p" className="!block" {...props} />
+    return <Text as="p" className="!block text-base" {...props} />
   },
   a: function a({ href, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) {
     return (
@@ -43,7 +45,11 @@ const components = {
   },
 }
 
-export default function Entry({ source, title, category, tags }: EntryProps) {
+export default function Entry({ source, tableOfContents, title, category, tags }: EntryProps) {
+  useEffect(() => {
+    console.log(tableOfContents)
+  }, [])
+
   return (
     <>
       <Head>
@@ -87,10 +93,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { content, ...metadata } = await getEntry(entryPathCache[slug])
   const source = await serialize(content)
+  const tableOfContents = toc(content).json
 
   return {
     props: {
       source,
+      tableOfContents,
       ...metadata,
     },
   }

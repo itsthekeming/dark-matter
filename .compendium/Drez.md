@@ -1,5 +1,0 @@
----
-title: Drez
-tags:
-  - Planets
----

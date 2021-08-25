@@ -5,4 +5,4 @@ tags:
   - Dragonborn
 ---
 
-**Talnox** is a [Dragonborn](/compendium/Dragonborn) criminal who was imprisoned at the
+**Talnox** is a [dragonborn](/compendium/Dragonborn) criminal who was imprisoned in [Freemantle Penal Colony](/compendium/Freemantle_Penal_Colony).

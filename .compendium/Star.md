@@ -9,6 +9,7 @@ A **star** is an astronomical object consisting of a luminous spheroid of plasma
 
 ## See Also
 
+- [List of stars](/compendium/List_of_stars)
 - [Star system](/compendium/Star_system)
 
 ## External Links

@@ -1,10 +1,11 @@
 ---
 title: Clank
+published: true
 tags:
   - Ships
 ---
 
-The **Clank** is a [Horsehead Industries](/compendium/Horsehead_Industries) [CL84K](/compendium/CL84K) transport class [ship](/compendium/Ship) that belongs to [Ratchet](/compendium/Albert_Kang_III).
+The **Clank** is a [Horsehead Industries CL84K](/compendium/Horsehead_Industries_CL84K) owned by [Ratchet](/compendium/Albert_Kang_III).
 
 ## Crew
 

@@ -7,4 +7,4 @@ tags:
   - Rogues
 ---
 
-**Albert Kang III**, better known as **Ratchet**, is a [Simian](</compendium/Simian_(species)>) [Rogue](/compendium/Rogue), adventurer, and mercenary.
+**Albert Kang III**, better known as **Ratchet**, is a [simian](</compendium/Simian_(species)>) [rogue](/compendium/Rogue), adventurer, and mercenary.

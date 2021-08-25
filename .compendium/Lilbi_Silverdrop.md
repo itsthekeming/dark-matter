@@ -7,4 +7,4 @@ tags:
   - Monk
 ---
 
-**Lilbi Silverdrop** is a [Gnome](/compendium/Gnome) [Monk](/compendium/Monk), adventurer, and mercenary.
+**Lilbi Silverdrop** is a [gnome](/compendium/Gnome) [monk](/compendium/Monk), adventurer, and mercenary.
